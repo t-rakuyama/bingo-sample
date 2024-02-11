@@ -17,3 +17,7 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+docker/mysql/#innodb_redo
+docker/mysql/#innodb_temp
+docker/mysql/logs
+docker/nginx/logs
