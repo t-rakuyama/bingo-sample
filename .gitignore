@@ -28,3 +28,4 @@ yarn-error.log
 /docker/mysql/mysql.ibd
 /docker/mysql/undo_001
 /docker/mysql/undo_002
+/docker/mysql/binlog.index
