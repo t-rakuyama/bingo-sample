@@ -32,8 +32,9 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=bingo
+      - MYSQL_USER=root
     ports:
-      - 3306:3306
+      - "4306:3306"
 
   bingo-redis:
     image: redis:alpine
