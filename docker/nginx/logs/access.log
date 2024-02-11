@@ -1,0 +1,4 @@
+172.18.0.1 - - [11/Feb/2024:05:24:22 +0000] "GET / HTTP/1.1" 404 27 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
+172.18.0.1 - - [11/Feb/2024:05:24:22 +0000] "GET /favicon.ico HTTP/1.1" 404 27 "http://localhost/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
+172.18.0.1 - - [11/Feb/2024:05:56:53 +0000] "GET / HTTP/1.1" 200 27544 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
+172.18.0.1 - - [11/Feb/2024:05:57:26 +0000] "GET / HTTP/1.1" 200 27551 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
