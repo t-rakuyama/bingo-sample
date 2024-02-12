@@ -19,4 +19,5 @@ Route::get('/welcome', function () {
 
 Route::view('/', 'entry');
 
-Route::post('/game', 'App\Http\Controllers\GameController@index');
+Route::post('/game', 'App\Http\Controllers\GameController@post');
+Route::get('/game', 'App\Http\Controllers\GameController@index');
