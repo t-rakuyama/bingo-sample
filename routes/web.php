@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
+
+Route::view('/', 'entry');
+
+Route::post('/game', 'App\Http\Controllers\GameController@index');
