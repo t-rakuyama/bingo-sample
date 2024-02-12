@@ -11,4 +11,9 @@ class UserRepository
         $user->fill(['name' => $name])->save();
         return $user;
     }
+    public function deleteUser()
+    {
+        User::query()->delete();
+
+    }
 }

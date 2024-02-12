@@ -25,4 +25,9 @@ class CardRepository
         }
         Card::insert($querys);
     }
+
+    public function deleteCard()
+    {
+        Card::query()->delete();
+    }
 }

@@ -17,7 +17,7 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::view('/', 'entry');
+Route::get('/', 'App\Http\Controllers\ResetController@index');
 
 Route::post('/game', 'App\Http\Controllers\GameController@post');
 Route::get('/game', 'App\Http\Controllers\GameController@index');
