@@ -5,7 +5,7 @@ submitButton?.addEventListener('click', () => {
     const name = document.getElementById('name') as HTMLInputElement
     if (validate(name.value)) {
         const form = document.getElementById('entryForm') as HTMLFormElement
-        form.action = '/game'
+        form.action = '/'
         form.submit()
     }
 })
