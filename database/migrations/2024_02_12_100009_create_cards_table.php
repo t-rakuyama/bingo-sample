@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('cellNumber');
             $table->string('value');
             $table->boolean('isHit')->default(false);
+            $table->timestamps();
         });
     }
 
