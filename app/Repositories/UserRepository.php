@@ -11,6 +11,12 @@ class UserRepository
         $user->fill(['name' => $name])->save();
         return $user;
     }
+
+    public function find()
+    {
+        return User::all();
+    }
+
     public function deleteUser()
     {
         User::query()->delete();

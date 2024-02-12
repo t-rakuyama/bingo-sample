@@ -26,6 +26,11 @@ class CardRepository
         Card::insert($querys);
     }
 
+    public function find()
+    {
+        return Card::all();
+    }
+
     public function deleteCard()
     {
         Card::query()->delete();
