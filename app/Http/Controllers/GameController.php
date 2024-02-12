@@ -11,6 +11,11 @@ class GameController extends Controller
 {
     public function index()
     {
+        // Servicesに移行させる
+        $userRepository = new UserRepository();
+        $users = $userRepository->find();
+        $cardRepository = new CardRepository();
+        $cards = $cardRepository->find();
         return view('game.index');
     }
 
