@@ -9,6 +9,6 @@ class UserRepository
     {
         $user = new User();
         $user->fill(['name' => $name])->save();
-        return $user
+        return $user;
     }
 }
