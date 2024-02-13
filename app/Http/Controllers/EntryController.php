@@ -31,4 +31,3 @@ class EntryController extends Controller
         return redirect()->action('App\Http\Controllers\GameController@index');
     }
 }
-
