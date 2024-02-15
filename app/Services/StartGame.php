@@ -5,8 +5,15 @@ namespace App\Services;
 use App\Repositories\UserRepository;
 use App\Repositories\CardRepository;
 
-class CreateGame
+class StartGame
 {
+    public function reset() {
+        $cardRepository = new CardRepository();
+        $cardRepository->deleteCard();
+        $userRepository = new UserRepository();
+        $userRepository->deleteUser();
+    }
+
     public function create(array $nameList)
     {
         foreach ($nameList as $name) {
@@ -16,5 +23,9 @@ class CreateGame
             $cardRepository = new CardRepository();
             $cardRepository->createCard($user->id);
         }
+        session()->flush();
+        $numbers = range(1, 75);
+        shuffle($numbers);
+        session(['numbers'=>$numbers]);
     }
 }
