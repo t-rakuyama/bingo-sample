@@ -7,6 +7,7 @@
 <style>
 .card-container {
     overflow: hidden;
+    min-width: 300px;
 }
 .flexbox {
   display: flex;
@@ -19,18 +20,21 @@
   background: gray;
   border: 1px solid #000;
   width: 50px;
+  height: 50px;
 }
 
 .flex-hit-item {
   background: orange;
   border: 1px solid #000;
   width: 50px;
+  height: 50px;
 }
 
 </style>
 @endsection
 
 @section('content')
+hitNumber {{$number}}
 @foreach ($data as $k => $v)
     {{$v['name']}}
     <div class="card-container">
@@ -47,4 +51,8 @@
         @endforeach
     </div>
 @endforeach
+<form method="POST" action='/game'>
+@csrf
+    <button>次の数字を引く</button>
+</form>
 @endsection

@@ -28,6 +28,11 @@ class EntryController extends Controller
         $createGame = new CreateGame();
         $createGame->create($nameList);
 
+        session()->flush();
+        $numbers = range(1, 75);
+        shuffle($numbers);
+        session(['numbers'=>$numbers]);
+
         return redirect()->action('App\Http\Controllers\GameController@index');
     }
 }

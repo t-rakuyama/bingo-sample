@@ -31,6 +31,13 @@ class CardRepository
         return Card::all();
     }
 
+    public function update($number)
+    {
+        Card::where('value', '=', $number)->update([
+            'isHit' => 1,
+        ]);
+    }
+
     public function deleteCard()
     {
         Card::query()->delete();

@@ -21,4 +21,4 @@ Route::get('/', 'App\Http\Controllers\EntryController@index');
 Route::post('/', 'App\Http\Controllers\EntryController@post');
 
 Route::get('/game', 'App\Http\Controllers\GameController@index');
-//Route::post('/game', 'App\Http\Controllers\GameController@post');
+Route::post('/game', 'App\Http\Controllers\GameController@post');

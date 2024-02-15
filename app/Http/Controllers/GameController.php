@@ -8,9 +8,8 @@ use App\Repositories\CardRepository;
 
 class GameController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        // Servicesに移行させる
         $userRepository = new UserRepository();
         $users = $userRepository->find();
         $cardRepository = new CardRepository();
@@ -29,7 +28,21 @@ class GameController extends Controller
             $pData['card'] = array_chunk($cardData, 5);
             array_push($data, $pData);
         }
-        return view('game.index', ['data' => $data]);
+        $number = session('number');
+        return view('game.index', ['data' => $data, 'number' => $number]);
+    }
+
+    public function post()
+    {
+        $numbers = session('numbers');
+
+        $number = array_shift($numbers);
+        session(['numbers'=>$numbers]);
+        session(['number'=>$number]);
+
+        $cardRepository = new CardRepository();
+        $cardRepository->update($number);
+        return redirect()->action('App\Http\Controllers\GameController@index');
     }
 
 }
