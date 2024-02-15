@@ -36,7 +36,10 @@
 @section('content')
 hitNumber {{$number}}
 @foreach ($data as $k => $v)
-    {{$v['name']}}
+    <p>{{$v['name']}}</p>
+    @if ($v['isBingo'])
+    <p>bingo!</p>
+    @endif
     <div class="card-container">
         @foreach ($v['card'] as $column)
             <div class="flexbox">
@@ -55,4 +58,7 @@ hitNumber {{$number}}
 @csrf
     <button>次の数字を引く</button>
 </form>
+@if ($isFinish)
+    <button type="button" onclick="location.href='/'">トップページへ</button>
+@endif
 @endsection
