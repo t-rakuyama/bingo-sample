@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\UserRepository;
 use App\Repositories\CardRepository;
+use App\Services\DrawCard;
 
 class GameController extends Controller
 {
@@ -34,14 +35,8 @@ class GameController extends Controller
 
     public function post()
     {
-        $numbers = session('numbers');
-
-        $number = array_shift($numbers);
-        session(['numbers'=>$numbers]);
-        session(['number'=>$number]);
-
-        $cardRepository = new CardRepository();
-        $cardRepository->update($number);
+        $drawCard = new DrawCard();
+        $drawCard->draw();
         return redirect()->action('App\Http\Controllers\GameController@index');
     }
 
