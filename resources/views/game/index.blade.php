@@ -5,9 +5,14 @@
 @section('js')
 @vite(['resources/js/entry.ts'])
 <style>
+    .game-container {
+        float: left;
+    }
+
     .card-container {
         overflow: hidden;
         min-width: 300px;
+
     }
 
     .flexbox {
@@ -30,35 +35,55 @@
         width: 50px;
         height: 50px;
     }
+
+    button.btn--orange {
+        color: #fff;
+        background-color: #eb6100;
+        border-bottom: 5px solid #b84c00;
+    }
+
+    button.btn--orange:hover {
+        margin-top: 3px;
+        color: #fff;
+        background: #f56500;
+        border-bottom: 2px solid #b84c00;
+    }
+
+    button.btn--shadow {
+        -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+        box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+    }
 </style>
 @endsection
 
 @section('content')
-hitNumber {{$number}}
+<div>hitNumber {{$number}}</div>
 @foreach ($data as $k => $v)
-<p>{{$v['name']}}</p>
-@if ($v['isBingo'])
-<p>bingo!</p>
-@endif
-<div class="card-container">
-    @foreach ($v['card'] as $column)
-    <div class="flexbox">
-        @foreach ($column as $cell )
-        @if ($cell['isHit'])
-        <div class="flex-hit-item">{{$cell['value']}}</div>
-        @else
-        <div class="flex-item">{{$cell['value']}}</div>
-        @endif
+<div class="game-container">
+    {{$v['name']}}
+    @if ($v['isBingo'])
+    <span>bingo!</span>
+    @endif
+    <div class="card-container">
+        @foreach ($v['card'] as $column)
+        <div class="flexbox">
+            @foreach ($column as $cell )
+            @if ($cell['isHit'])
+            <div class="flex-hit-item">{{$cell['value']}}</div>
+            @else
+            <div class="flex-item">{{$cell['value']}}</div>
+            @endif
+            @endforeach
+        </div>
         @endforeach
     </div>
-    @endforeach
 </div>
 @endforeach
 <form method="POST" action='/game'>
     @csrf
-    <button>次の数字を引く</button>
+    <button class="btn btn--orange btn--cubic btn--shadow">次の数字を引く</button>
 </form>
 @if ($isFinish)
-<button type="button" onclick="location.href='/'">トップページへ</button>
+<button class="btn btn--orange btn--cubic btn--shadow" type="button" onclick="location.href='/'">トップページへ</button>
 @endif
 @endsection
