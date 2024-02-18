@@ -8,7 +8,7 @@
 
 @section('content')
 <form id="entryForm" name="entryForm" method="POST">
-@csrf
+    @csrf
     <div>
         <label for='name'> 名前（空白区切り） </label>
         <input type=text id='name' name='name' />
