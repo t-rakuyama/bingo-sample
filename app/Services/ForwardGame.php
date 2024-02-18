@@ -17,6 +17,9 @@ class ForwardGame
         $data = $this->createDisplayData($users, $cards);
         foreach($data as $index => $user) {
             $data[$index]['isBingo'] = $this->isBingo($user['card']);
+            if ($data[$index]['isBingo']){
+                session(['isFinish'=>true]);
+            }
         }
 
         return $data;

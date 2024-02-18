@@ -13,7 +13,7 @@ class GameController extends Controller
         $forwardGame = new ForwardGame();
         $data = $forwardGame->forwardGame();
         $number = session('number');
-        $isFinish = count(session('numbers')) === 0;
+        $isFinish = session('isFinish');
         return view('game.index', ['data' => $data, 'number' => $number, 'isFinish' => $isFinish ]);
     }
 
